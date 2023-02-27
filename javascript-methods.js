@@ -8,10 +8,8 @@ The prototype constructor is used to add new methods (functions) and properties 
 In this Assignment, we use the prototype constructor to add new methods to the Array() object.
 ----------------------------------------------------------*/
 
-function testFunction(indexVariable){
-  result = 2* indexVariable;
-  return result;
-}
+//Change array values here for individual tests
+testArray = [2,4,5,22];
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
@@ -25,14 +23,17 @@ Array.prototype.myMap = function(callbackFn) {
   return resultArray;
 };
 
-//TESTS
-testArray = [1,2,3,4];
-//console.log(testArray.myMap(testFunction)); //should print 2, 4, 6
+//MAP TEST
+//console.log("Map function test:")
+//console.log(testArray.myMap(num => num * 2)); //should print 2, 4, 6
+
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
+  //hold results
   filterArray = [];
 
+  //loop through, if function returns true then add to result array
   for (let index = 0; index < this.length; index++) {
     if(callbackFn(this[index])){
       filterArray.push(this[index]);
@@ -41,17 +42,39 @@ Array.prototype.myFilter = function(callbackFn) {
   return filterArray;
 };
 
-console.log(testArray.myFilter(num => num % 2 === 0));
+//FILTER TEST
+//console.log("Filter function test:")
+//console.log(testArray.myFilter(num => num % 2 === 0));
+
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
+  for (let index = 0; index < this.length; index++) {
+    if(callbackFn(this[index])){
+      return true;
+    }
+  }
+  return false;
 };
+
+//SOME TEST
+//console.log("Some function test:")
+//console.log(testArray.mySome(num => num % 2 === 0));
+
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
+  for (let index = 0; index < this.length; index++) {
+    if(!callbackFn(this[index])){
+      return false;
+    }
+  }
+  return true;
 };
+
+//EVERY TEST
+//console.log("Every function test:")
+//console.log(testArray.myEvery(num => num % 2 === 0));
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {

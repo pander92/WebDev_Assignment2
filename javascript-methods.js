@@ -25,13 +25,23 @@ Array.prototype.myMap = function(callbackFn) {
   return resultArray;
 };
 
-//testArray = [1,2,3];
+//TESTS
+testArray = [1,2,3,4];
 //console.log(testArray.myMap(testFunction)); //should print 2, 4, 6
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  // Place your code here.
+  filterArray = [];
+
+  for (let index = 0; index < this.length; index++) {
+    if(callbackFn(this[index])){
+      filterArray.push(this[index]);
+    }
+  }
+  return filterArray;
 };
+
+console.log(testArray.myFilter(num => num % 2 === 0));
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {

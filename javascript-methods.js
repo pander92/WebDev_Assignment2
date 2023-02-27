@@ -9,7 +9,7 @@ In this Assignment, we use the prototype constructor to add new methods to the A
 ----------------------------------------------------------*/
 
 //Change array values here for individual tests
-testArray = [2,4,5,22];
+testArray = [1,2,3];
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
@@ -78,8 +78,18 @@ Array.prototype.myEvery = function(callbackFn) {
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
+  let accumulator = 0; //if function has an initial value, can be set here. 
+  //applies function to each array item, taking the accumulator (with its accumulated value) as a parameter
+  for (let index = 0; index < this.length; index++) {
+    accumulator = callbackFn(accumulator, this[index]);
+    //console.log(accumulator);
+  }
+  return accumulator;
 };
+
+//REDUCE TEST
+//console.log("Reduce function test:")
+//console.log(testArray.myReduce((total, val) => total + val));
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {

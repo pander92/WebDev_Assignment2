@@ -94,24 +94,68 @@ Array.prototype.myReduce = function(callbackFn) {
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
   // Place your code here.
+  for(let index=0; index<this.length; index++){ // loop through the array 
+    if(this[index]== searchElement){  //searching if the element is in the array. 
+      return true; 
+    }
+     
+  }
+    return false; 
 };
+
+//INCLUDES TEST
+// console.log(testArray.myIncludes(2));
+
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
   // Place your code here.
+  for(let index = 0 ; index< this.length; index++){ // this will loop through the array 
+    if(this[index]== searchElement) // condition if the searchElement is equal to the array then it will return the index
+    return index; 
+  }
+  return -1; // if not then return -1. 
 };
+//INDEXOF TEST
+console.log(testArray.myIndexOf(2));
+
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
   // Place your code here.
+  for(let index = this.length-1; index>=0; index--){ //loop through the array from last index to first index
+    if(this[index] == searchElement){ // if meets the condition will return index 
+      return index; 
+    }
+  }
+  return -1;  // if doesn't meet the conditions will return -1 
 };
+//LASTINDEXOF TEST
+//console.log(testArray.myLastIndexOf(3));
 
 // KEYS //
 Object.myKeys = function(object) {
   // Place your code here.
+  let key = []; 
+  for(let keys in object){ // search for keys inside the array 
+      key.push(keys);  // pushing the keys to new array 
+  }
+return key; // returning the keys 
+
 };
+//KEYS TEST;
+//console.log(Object.myKeys(testArray));
 
 // VALUES //
 Object.myValues = function(object) {
-  // Place your code here.
+    // Place your code here.
+    let value = []; 
+      for(let index in object){ //run through the array 
+          value.push(object[index]); //pushing the property values into the array 
+      }
+    return value; // returning the values 
+  
 };
+
+//VALUES TEST
+ console.log(Object.myValues(testArray));
